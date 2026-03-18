@@ -101,7 +101,29 @@ body {
   background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.07) 30%, rgba(255,255,255,0.07) 70%, transparent 100%);
 }
 
-/* Animate on scroll */
+/* ─── Hero entrance animations (CSS-only, not Tailwind — safe from purging) ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-fade-up:nth-child(1) { animation-delay: 0.05s; }
+.hero-fade-up:nth-child(2) { animation-delay: 0.18s; }
+.hero-fade-up:nth-child(3) { animation-delay: 0.31s; }
+.hero-fade-up:nth-child(4) { animation-delay: 0.44s; }
+.hero-fade-up:nth-child(5) { animation-delay: 0.57s; }
+
+/* Animate on scroll (used by other sections) */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);

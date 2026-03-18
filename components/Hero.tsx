@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
 const stats = [
@@ -11,33 +10,16 @@ const stats = [
 ]
 
 export default function Hero() {
-  const heroRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    // Staggered entrance
-    const els = heroRef.current?.querySelectorAll('[data-animate]')
-    els?.forEach((el, i) => {
-      const htmlEl = el as HTMLElement
-      htmlEl.style.animationDelay = `${i * 0.12}s`
-      htmlEl.style.opacity = '0'
-      htmlEl.style.animation = `fadeUp 0.7s ease forwards ${i * 0.12}s`
-    })
-  }, [])
-
   const handleScrollDown = () => {
-    const el = document.querySelector('#services')
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
-    <section
-      ref={heroRef}
-      className="relative min-h-dvh flex flex-col items-center justify-center overflow-hidden bg-bg"
-    >
+    <section className="relative min-h-dvh flex flex-col items-center justify-center overflow-hidden bg-bg">
       {/* Background grid */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-100 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-pattern pointer-events-none" />
 
-      {/* Blue orb glow — top right */}
+      {/* Blue orb — top right */}
       <div
         className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
@@ -55,37 +37,29 @@ export default function Hero() {
         }}
       />
 
+      {/* Content — each direct child gets hero-fade-up via nth-child */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center gap-8 py-8">
-        {/* Badge */}
-        <div
-          data-animate
-          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-surface text-sm font-dm text-muted"
-        >
+        {/* child 1 */}
+        <div className="hero-fade-up inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-surface text-sm font-dm text-muted">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse-slow" />
           Trusted by 48+ growing businesses
         </div>
 
-        {/* Headline */}
-        <h1
-          data-animate
-          className="font-syne font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-ink"
-        >
+        {/* child 2 */}
+        <h1 className="hero-fade-up font-syne font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-ink">
           Stop paying for AI&nbsp;tools
           <br />
           <span className="gradient-text">that no one uses.</span>
         </h1>
 
-        {/* Sub */}
-        <p
-          data-animate
-          className="max-w-2xl text-lg md:text-xl font-dm text-muted leading-relaxed"
-        >
+        {/* child 3 */}
+        <p className="hero-fade-up max-w-2xl text-lg md:text-xl font-dm text-muted leading-relaxed">
           StratusAI designs and deploys custom AI automation systems that actually get
           adopted — saving time, cutting costs, and driving measurable results from day one.
         </p>
 
-        {/* CTAs */}
-        <div data-animate className="flex flex-col sm:flex-row items-center gap-4">
+        {/* child 4 */}
+        <div className="hero-fade-up flex flex-col sm:flex-row items-center gap-4">
           <a
             href="#contact"
             onClick={(e) => {
@@ -109,11 +83,8 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Stats row */}
-        <div
-          data-animate
-          className="w-full mt-4 pt-8 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
+        {/* child 5 */}
+        <div className="hero-fade-up w-full pt-8 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center gap-1">
               <span className="font-syne font-bold text-3xl md:text-4xl gradient-text">

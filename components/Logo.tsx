@@ -7,54 +7,49 @@ interface LogoProps {
 
 export default function Logo({ className = '', size = 'md' }: LogoProps) {
   const configs = {
-    sm: { markW: 36, markH: 20, textSize: 14, aiSize: 12, gap: 9 },
-    md: { markW: 46, markH: 26, textSize: 17, aiSize: 14, gap: 11 },
-    lg: { markW: 58, markH: 33, textSize: 22, aiSize: 18, gap: 14 },
+    sm: { w: 32, textSize: 13, aiSize: 11, gap: 8 },
+    md: { w: 40, textSize: 16, aiSize: 13, gap: 11 },
+    lg: { w: 52, textSize: 21, aiSize: 17, gap: 14 },
   }
   const c = configs[size]
 
+  // Bar dimensions derived from mark width
+  const bh = Math.round(c.w * 0.14)   // bar height
+  const r  = bh / 2                    // border radius
+  const g  = Math.round(c.w * 0.13)   // gap between bars
+
+  // Three bars: full width, 72%, 46% — left-aligned, ascending opacity loss
+  const bars = [
+    { w: c.w,                   y: 0,           fill: '#4E96FF', opacity: 1    },
+    { w: Math.round(c.w * 0.72), y: bh + g,      fill: '#ffffff', opacity: 0.7  },
+    { w: Math.round(c.w * 0.46), y: (bh + g) * 2, fill: '#ffffff', opacity: 0.4  },
+  ]
+
+  const totalH = bh * 3 + g * 2
+
   return (
-    <div
-      className={`flex items-center ${className}`}
-      style={{ gap: c.gap }}
-    >
-      {/* Stratus cloud mark — wide, flat silhouette with two gentle bumps */}
+    <div className={`flex items-center ${className}`} style={{ gap: c.gap }}>
       <svg
-        width={c.markW}
-        height={c.markH}
-        viewBox="0 0 56 30"
+        width={c.w}
+        height={totalH}
+        viewBox={`0 0 ${c.w} ${totalH}`}
         fill="none"
         aria-hidden="true"
       >
-        {/* Cloud base glow */}
-        <ellipse cx="28" cy="26" rx="22" ry="4" fill="#4E96FF" fillOpacity="0.15" />
-
-        {/* Main cloud silhouette — stratus shape: wide, flat, two bumps */}
-        <path
-          d="M9 26
-             L47 26
-             Q53 26 53 20
-             Q53 14 47 13
-             Q48 6 40 7
-             Q37 2 30 5
-             Q26 1 19 5
-             Q12 3 10 9
-             Q3 10 3 17
-             Q3 26 9 26 Z"
-          fill="#4E96FF"
-        />
-
-        {/* Subtle highlight streak across cloud top — suggests depth */}
-        <path
-          d="M16 8 Q28 4 40 8"
-          stroke="white"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeOpacity="0.25"
-        />
+        {bars.map((bar, i) => (
+          <rect
+            key={i}
+            x={0}
+            y={bar.y}
+            width={bar.w}
+            height={bh}
+            rx={r}
+            fill={bar.fill}
+            fillOpacity={bar.opacity}
+          />
+        ))}
       </svg>
 
-      {/* Wordmark */}
       <div className="flex items-baseline" style={{ gap: 3 }}>
         <span
           className="font-syne text-ink leading-none"

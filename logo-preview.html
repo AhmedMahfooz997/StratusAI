@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ZyvosAI — Logo Concepts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #05050B;
+      color: #E8E8F2;
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 64px;
+      padding: 80px 40px;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #6B6B8F;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .card {
+      background: #0A0A14;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 48px 32px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: rgba(78,150,255,0.3); }
+
+    .mark-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+    }
+
+    .wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+    }
+    .wordmark .name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 0.07em;
+      color: #E8E8F2;
+    }
+    .wordmark .ai {
+      font-family: 'Syne', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      color: #4E96FF;
+    }
+
+    .label {
+      font-size: 12px;
+      color: #3A3A5C;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ZyvosAI — Logo Concepts</h1>
+
+  <div class="grid">
+
+    <!-- ── Option A: Current 3-bar mark ── -->
+    <div class="card">
+      <div class="mark-area">
+        <svg width="48" height="22" viewBox="0 0 48 22" fill="none">
+          <rect x="0" y="0"  width="48" height="7" rx="3.5" fill="#4E96FF"/>
+          <rect x="0" y="9"  width="35" height="7" rx="3.5" fill="white" fill-opacity="0.7"/>
+          <rect x="0" y="18" width="22" height="7" rx="3.5" fill="white" fill-opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="card-inner">
+        <div class="wordmark">
+          <span class="name">STRATUS</span>
+          <span class="ai">AI</span>
+        </div>
+        <span class="label">A — Current</span>
+      </div>
+    </div>
+
+    <!-- ── Option B: S monogram (bold stroke) ── -->
+    <div class="card">
+      <div class="mark-area">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+          <!-- Outer glow -->
+          <circle cx="26" cy="26" r="25" fill="rgba(78,150,255,0.08)" stroke="rgba(78,150,255,0.18)" stroke-width="1"/>
+          <!-- Bold S stroke -->
+          <path
+            d="M 34 16 C 44 12 46 24 26 28 C 6 32 6 42 18 46"
+            stroke="#4E96FF"
+            stroke-width="7"
+            stroke-linecap="round"
+            fill="none"
+          />
+          <!-- Top serif cap -->
+          <line x1="20" y1="16" x2="34" y2="16" stroke="#4E96FF" stroke-width="7" stroke-linecap="round"/>
+          <!-- Bottom serif cap -->
+          <line x1="18" y1="46" x2="32" y2="46" stroke="#4E96FF" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-inner">
+        <div class="wordmark">
+          <span class="name">STRATUS</span>
+          <span class="ai">AI</span>
+        </div>
+        <span class="label">B — S Monogram</span>
+      </div>
+    </div>
+
+    <!-- ── Option C: Stacked offset bars (S rhythm) ── -->
+    <div class="card">
+      <div class="mark-area">
+        <svg width="48" height="34" viewBox="0 0 48 34" fill="none">
+          <!-- Top bar: right-heavy (S opens right at top) -->
+          <rect x="10" y="0"  width="38" height="8" rx="4" fill="#4E96FF"/>
+          <!-- Middle bar: full width -->
+          <rect x="0"  y="13" width="48" height="8" rx="4" fill="white" fill-opacity="0.85"/>
+          <!-- Bottom bar: left-heavy (S opens left at bottom) -->
+          <rect x="0"  y="26" width="38" height="8" rx="4" fill="#4E96FF" fill-opacity="0.55"/>
+        </svg>
+      </div>
+      <div class="card-inner">
+        <div class="wordmark">
+          <span class="name">STRATUS</span>
+          <span class="ai">AI</span>
+        </div>
+        <span class="label">C — S-Rhythm Bars</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Dark background preview ── -->
+  <div style="width:100%;max-width:860px;">
+    <p style="font-size:12px;color:#3A3A5C;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">On dark background (navbar context)</p>
+    <div style="background:#05050B;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;">
+
+      <!-- A small -->
+      <div style="display:flex;align-items:center;gap:10px;">
+        <svg width="32" height="15" viewBox="0 0 48 22" fill="none">
+          <rect x="0" y="0"  width="48" height="7" rx="3.5" fill="#4E96FF"/>
+          <rect x="0" y="9"  width="35" height="7" rx="3.5" fill="white" fill-opacity="0.7"/>
+          <rect x="0" y="18" width="22" height="7" rx="3.5" fill="white" fill-opacity="0.4"/>
+        </svg>
+        <div style="display:flex;align-items:baseline;gap:3px;">
+          <span style="font-family:Syne,sans-serif;font-weight:800;font-size:15px;letter-spacing:0.07em;color:#E8E8F2;">STRATUS</span>
+          <span style="font-family:Syne,sans-serif;font-weight:500;font-size:13px;letter-spacing:0.05em;color:#4E96FF;">AI</span>
+        </div>
+        <span style="font-size:11px;color:#3A3A5C;margin-left:4px;">A</span>
+      </div>
+
+      <!-- B small -->
+      <div style="display:flex;align-items:center;gap:10px;">
+        <svg width="28" height="28" viewBox="0 0 52 52" fill="none">
+          <circle cx="26" cy="26" r="25" fill="rgba(78,150,255,0.08)" stroke="rgba(78,150,255,0.18)" stroke-width="1"/>
+          <path d="M 34 16 C 44 12 46 24 26 28 C 6 32 6 42 18 46" stroke="#4E96FF" stroke-width="7" stroke-linecap="round" fill="none"/>
+          <line x1="20" y1="16" x2="34" y2="16" stroke="#4E96FF" stroke-width="7" stroke-linecap="round"/>
+          <line x1="18" y1="46" x2="32" y2="46" stroke="#4E96FF" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div style="display:flex;align-items:baseline;gap:3px;">
+          <span style="font-family:Syne,sans-serif;font-weight:800;font-size:15px;letter-spacing:0.07em;color:#E8E8F2;">STRATUS</span>
+          <span style="font-family:Syne,sans-serif;font-weight:500;font-size:13px;letter-spacing:0.05em;color:#4E96FF;">AI</span>
+        </div>
+        <span style="font-size:11px;color:#3A3A5C;margin-left:4px;">B</span>
+      </div>
+
+      <!-- C small -->
+      <div style="display:flex;align-items:center;gap:10px;">
+        <svg width="30" height="22" viewBox="0 0 48 34" fill="none">
+          <rect x="10" y="0"  width="38" height="8" rx="4" fill="#4E96FF"/>
+          <rect x="0"  y="13" width="48" height="8" rx="4" fill="white" fill-opacity="0.85"/>
+          <rect x="0"  y="26" width="38" height="8" rx="4" fill="#4E96FF" fill-opacity="0.55"/>
+        </svg>
+        <div style="display:flex;align-items:baseline;gap:3px;">
+          <span style="font-family:Syne,sans-serif;font-weight:800;font-size:15px;letter-spacing:0.07em;color:#E8E8F2;">STRATUS</span>
+          <span style="font-family:Syne,sans-serif;font-weight:500;font-size:13px;letter-spacing:0.05em;color:#4E96FF;">AI</span>
+        </div>
+        <span style="font-size:11px;color:#3A3A5C;margin-left:4px;">C</span>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

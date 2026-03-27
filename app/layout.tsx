@@ -17,9 +17,9 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'StratusAI — AI Solutions That Deliver Results',
+  title: 'ZyvosAI — AI Solutions That Deliver Results',
   description:
-    'StratusAI builds custom AI automation systems and intelligent workflows that streamline operations, reduce costs, and drive measurable growth.',
+    'ZyvosAI builds custom AI automation systems and intelligent workflows that streamline operations, reduce costs, and drive measurable growth.',
   keywords: [
     'AI agency',
     'AI automation',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     'business automation',
   ],
   openGraph: {
-    title: 'StratusAI — AI Solutions That Deliver Results',
+    title: 'ZyvosAI — AI Solutions That Deliver Results',
     description:
       'Custom AI automation systems for businesses serious about staying ahead.',
     type: 'website',

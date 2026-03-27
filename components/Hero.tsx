@@ -54,7 +54,7 @@ export default function Hero() {
 
         {/* child 3 */}
         <p className="hero-fade-up max-w-2xl text-lg md:text-xl font-dm text-muted leading-relaxed">
-          StratusAI designs and deploys custom AI automation systems that actually get
+          ZyvosAI designs and deploys custom AI automation systems that actually get
           adopted — saving time, cutting costs, and driving measurable results from day one.
         </p>
 

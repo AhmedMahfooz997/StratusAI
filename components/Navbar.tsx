@@ -42,7 +42,7 @@ export default function Navbar() {
       >
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" onClick={(e) => handleNavClick(e, '#')} aria-label="StratusAI home">
+          <a href="#" onClick={(e) => handleNavClick(e, '#')} aria-label="ZyvosAI home">
             <Logo size="md" />
           </a>
 

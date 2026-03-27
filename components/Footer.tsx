@@ -73,7 +73,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-dm text-dim text-sm">
-            © {new Date().getFullYear()} StratusAI. All rights reserved.
+            © {new Date().getFullYear()} ZyvosAI. All rights reserved.
           </p>
           <p className="font-dm text-dim text-sm">
             Built to deliver results, not excuses.

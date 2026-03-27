@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react'
 const testimonials = [
   {
     quote:
-      'StratusAI delivered in 6 weeks what our internal team spent 8 months trying to figure out. The ROI was visible within the first month.',
+      'ZyvosAI delivered in 6 weeks what our internal team spent 8 months trying to figure out. The ROI was visible within the first month.',
     author: 'Sarah K.',
     role: 'COO',
     company: 'Regional Medical Group',
@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     quote:
-      "We were sceptical about AI automation — we'd been burned by over-promises before. StratusAI was different. They understood our operations inside out and built something we actually use every day.",
+      "We were sceptical about AI automation — we'd been burned by over-promises before. ZyvosAI was different. They understood our operations inside out and built something we actually use every day.",
     author: 'Marcus T.',
     role: 'Head of Operations',
     company: 'National Logistics Co.',
@@ -21,7 +21,7 @@ const testimonials = [
   },
   {
     quote:
-      "Our analysts used to dread Monday report runs. Now they review and approve in 20 minutes. StratusAI didn't just build a tool — they transformed how our team works.",
+      "Our analysts used to dread Monday report runs. Now they review and approve in 20 minutes. ZyvosAI didn't just build a tool — they transformed how our team works.",
     author: 'Priya L.',
     role: 'Managing Director',
     company: 'Capital Advisory Partners',

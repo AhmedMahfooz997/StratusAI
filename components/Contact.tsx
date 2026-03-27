@@ -219,7 +219,7 @@ export default function Contact() {
                 </button>
 
                 <p className="text-xs font-dm text-dim text-center leading-relaxed">
-                  By submitting, you agree to be contacted about StratusAI services.
+                  By submitting, you agree to be contacted about ZyvosAI services.
                   We never share your data.
                 </p>
               </form>

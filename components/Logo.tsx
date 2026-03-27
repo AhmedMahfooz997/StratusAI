@@ -55,7 +55,7 @@ export default function Logo({ className = '', size = 'md' }: LogoProps) {
           className="font-syne text-ink leading-none"
           style={{ fontSize: c.textSize, fontWeight: 800, letterSpacing: '0.07em' }}
         >
-          STRATUS
+          ZYVOS
         </span>
         <span
           className="font-syne text-accent leading-none"

@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     'n8n automation',
     'business automation',
   ],
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'ZyvosAI — AI Solutions That Deliver Results',
     description:

@@ -1,30 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import { ArrowRight, Mail, MessageSquare, User, Building2 } from 'lucide-react'
 
 export default function Contact() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: '',
-  })
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('sending')
-    // Replace with your form endpoint (Formspree, Resend, etc.)
-    await new Promise((r) => setTimeout(r, 1200))
-    setStatus('sent')
-  }
+  const [state, handleSubmit] = useForm('mqeggzrg')
 
   return (
     <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
@@ -69,20 +49,11 @@ export default function Contact() {
               ))}
             </div>
 
-            <div className="mt-10 pt-8 border-t border-border">
-              <p className="font-dm text-muted text-sm mb-2">Prefer email?</p>
-              <a
-                href="mailto:hello@stratusai.io"
-                className="font-dm text-accent hover:text-blue-300 transition-colors text-base"
-              >
-                hello@stratusai.io
-              </a>
-            </div>
           </div>
 
           {/* Right: form */}
           <div className="bg-surface border border-border rounded-2xl p-8 md:p-10">
-            {status === 'sent' ? (
+            {state.succeeded ? (
               <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
                 <div className="w-16 h-16 rounded-full bg-accent-dim border border-accent/30 flex items-center justify-center">
                   <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -112,21 +83,17 @@ export default function Contact() {
                     Full name <span className="text-accent">*</span>
                   </label>
                   <div className="relative">
-                    <User
-                      size={16}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-dim"
-                    />
+                    <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-dim" />
                     <input
                       id="name"
                       name="name"
                       type="text"
                       required
-                      value={form.name}
-                      onChange={handleChange}
                       placeholder="Your name"
                       className="w-full pl-10 pr-4 py-3 bg-raised border border-border rounded-xl text-ink font-dm text-sm placeholder:text-dim focus:outline-none focus:border-accent/50 transition-colors"
                     />
                   </div>
+                  <ValidationError field="name" errors={state.errors} className="text-xs text-red-400 font-dm" />
                 </div>
 
                 {/* Email */}
@@ -135,21 +102,17 @@ export default function Contact() {
                     Work email <span className="text-accent">*</span>
                   </label>
                   <div className="relative">
-                    <Mail
-                      size={16}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-dim"
-                    />
+                    <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-dim" />
                     <input
                       id="email"
                       name="email"
                       type="email"
                       required
-                      value={form.email}
-                      onChange={handleChange}
                       placeholder="you@company.com"
                       className="w-full pl-10 pr-4 py-3 bg-raised border border-border rounded-xl text-ink font-dm text-sm placeholder:text-dim focus:outline-none focus:border-accent/50 transition-colors"
                     />
                   </div>
+                  <ValidationError field="email" errors={state.errors} className="text-xs text-red-400 font-dm" />
                 </div>
 
                 {/* Company */}
@@ -158,16 +121,11 @@ export default function Contact() {
                     Company
                   </label>
                   <div className="relative">
-                    <Building2
-                      size={16}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-dim"
-                    />
+                    <Building2 size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-dim" />
                     <input
                       id="company"
                       name="company"
                       type="text"
-                      value={form.company}
-                      onChange={handleChange}
                       placeholder="Your company name"
                       className="w-full pl-10 pr-4 py-3 bg-raised border border-border rounded-xl text-ink font-dm text-sm placeholder:text-dim focus:outline-none focus:border-accent/50 transition-colors"
                     />
@@ -180,29 +138,25 @@ export default function Contact() {
                     What are you looking to automate? <span className="text-accent">*</span>
                   </label>
                   <div className="relative">
-                    <MessageSquare
-                      size={16}
-                      className="absolute left-4 top-4 text-dim"
-                    />
+                    <MessageSquare size={16} className="absolute left-4 top-4 text-dim" />
                     <textarea
                       id="message"
                       name="message"
                       required
                       rows={4}
-                      value={form.message}
-                      onChange={handleChange}
                       placeholder="Briefly describe your workflow challenges or what you'd like to automate..."
                       className="w-full pl-10 pr-4 py-3 bg-raised border border-border rounded-xl text-ink font-dm text-sm placeholder:text-dim focus:outline-none focus:border-accent/50 transition-colors resize-none"
                     />
                   </div>
+                  <ValidationError field="message" errors={state.errors} className="text-xs text-red-400 font-dm" />
                 </div>
 
                 <button
                   type="submit"
-                  disabled={status === 'sending'}
+                  disabled={state.submitting}
                   className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-accent text-white font-dm font-semibold text-base hover:bg-blue-500 transition-colors glow-blue-sm disabled:opacity-60 disabled:cursor-not-allowed mt-1"
                 >
-                  {status === 'sending' ? (
+                  {state.submitting ? (
                     <>
                       <svg className="animate-spin" width="18" height="18" viewBox="0 0 18 18" fill="none">
                         <circle cx="9" cy="9" r="7" stroke="white" strokeOpacity="0.3" strokeWidth="2" />

@@ -18,7 +18,6 @@ const footerLinks = {
   ],
   Contact: [
     { label: 'Book a Call', href: '#contact' },
-    { label: 'hello@stratusai.io', href: 'mailto:hello@stratusai.io' },
   ],
 }
 
@@ -41,9 +40,6 @@ export default function Footer() {
             <p className="font-dm text-muted text-sm leading-relaxed max-w-xs">
               Custom AI automation systems and intelligent workflows that deliver measurable
               results — not just promises.
-            </p>
-            <p className="font-dm text-dim text-sm">
-              hello@stratusai.io
             </p>
           </div>
 

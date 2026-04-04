@@ -1,7 +1,7 @@
 'use client'
 
 import { useForm, ValidationError } from '@formspree/react'
-import { ArrowRight, Mail, MessageSquare, User, Building2 } from 'lucide-react'
+import { ArrowRight, Mail, MessageSquare, User, Building2, Briefcase } from 'lucide-react'
 
 export default function Contact() {
   const [state, handleSubmit] = useForm('mqeggzrg')
@@ -127,6 +127,23 @@ export default function Contact() {
                       name="company"
                       type="text"
                       placeholder="Your company name"
+                      className="w-full pl-10 pr-4 py-3 bg-raised border border-border rounded-xl text-ink font-dm text-sm placeholder:text-dim focus:outline-none focus:border-accent/50 transition-colors"
+                    />
+                  </div>
+                </div>
+
+                {/* Role */}
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="role" className="text-sm font-dm text-muted">
+                    Job title / Role
+                  </label>
+                  <div className="relative">
+                    <Briefcase size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-dim" />
+                    <input
+                      id="role"
+                      name="role"
+                      type="text"
+                      placeholder="e.g. Operations Manager, CEO, Head of IT"
                       className="w-full pl-10 pr-4 py-3 bg-raised border border-border rounded-xl text-ink font-dm text-sm placeholder:text-dim focus:outline-none focus:border-accent/50 transition-colors"
                     />
                   </div>

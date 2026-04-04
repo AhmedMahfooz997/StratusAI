@@ -13,7 +13,6 @@ const footerLinks = {
   Company: [
     { label: 'Process', href: '#process' },
     { label: 'Case Studies', href: '#results' },
-    { label: 'Pricing', href: '#pricing' },
     { label: 'FAQ', href: '#faq' },
   ],
   Contact: [

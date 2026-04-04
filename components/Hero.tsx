@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowRight, ChevronDown } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 
 const stats = [
   { value: '50+', label: 'Workflows Deployed' },
@@ -9,6 +10,108 @@ const stats = [
   { value: '100%', label: 'Project Delivery Rate' },
 ]
 
+function ParticleCanvas() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let animId: number
+    let mouse = { x: -9999, y: -9999 }
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth
+      canvas.height = canvas.offsetHeight
+    }
+    resize()
+    window.addEventListener('resize', resize)
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect()
+      mouse.x = e.clientX - rect.left
+      mouse.y = e.clientY - rect.top
+    })
+    canvas.addEventListener('mouseleave', () => {
+      mouse.x = -9999
+      mouse.y = -9999
+    })
+
+    const COUNT = 80
+    const particles = Array.from({ length: COUNT }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 1.5 + 0.5,
+    }))
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      // Move particles
+      for (const p of particles) {
+        p.x += p.vx
+        p.y += p.vy
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1
+
+        // Mouse repel
+        const dx = p.x - mouse.x
+        const dy = p.y - mouse.y
+        const dist = Math.sqrt(dx * dx + dy * dy)
+        if (dist < 100) {
+          p.x += (dx / dist) * 1.5
+          p.y += (dy / dist) * 1.5
+        }
+      }
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x
+          const dy = particles[i].y - particles[j].y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          if (dist < 130) {
+            const alpha = (1 - dist / 130) * 0.25
+            ctx.beginPath()
+            ctx.moveTo(particles[i].x, particles[i].y)
+            ctx.lineTo(particles[j].x, particles[j].y)
+            ctx.strokeStyle = `rgba(78,150,255,${alpha})`
+            ctx.lineWidth = 0.8
+            ctx.stroke()
+          }
+        }
+      }
+
+      // Draw dots
+      for (const p of particles) {
+        ctx.beginPath()
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+        ctx.fillStyle = 'rgba(78,150,255,0.6)'
+        ctx.fill()
+      }
+
+      animId = requestAnimationFrame(draw)
+    }
+
+    draw()
+    return () => {
+      cancelAnimationFrame(animId)
+      window.removeEventListener('resize', resize)
+    }
+  }, [])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-auto"
+      style={{ opacity: 0.6 }}
+    />
+  )
+}
+
 export default function Hero() {
   const handleScrollDown = () => {
     document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -16,15 +119,15 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-dvh flex flex-col items-center justify-center overflow-hidden bg-bg">
-      {/* Background grid */}
-      <div className="absolute inset-0 bg-grid-pattern pointer-events-none" />
+      {/* Particle network background */}
+      <ParticleCanvas />
 
       {/* Blue orb — top right */}
       <div
         className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
           background:
-            'radial-gradient(circle, rgba(78,150,255,0.12) 0%, rgba(78,150,255,0.04) 40%, transparent 70%)',
+            'radial-gradient(circle, rgba(78,150,255,0.10) 0%, rgba(78,150,255,0.03) 40%, transparent 70%)',
         }}
       />
 
@@ -33,11 +136,11 @@ export default function Hero() {
         className="absolute bottom-[5%] left-[-10%] w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
           background:
-            'radial-gradient(circle, rgba(56,217,255,0.07) 0%, rgba(56,217,255,0.02) 40%, transparent 70%)',
+            'radial-gradient(circle, rgba(56,217,255,0.06) 0%, rgba(56,217,255,0.02) 40%, transparent 70%)',
         }}
       />
 
-      {/* Content — each direct child gets hero-fade-up via nth-child */}
+      {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center gap-8 py-8">
         {/* child 1 */}
         <div className="hero-fade-up inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-surface text-sm font-dm text-muted">
@@ -46,16 +149,18 @@ export default function Hero() {
         </div>
 
         {/* child 2 */}
-        <h1 className="hero-fade-up font-syne font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-ink">
-          Stop paying for AI&nbsp;tools
+        <h1 className="hero-fade-up font-syne font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.15] tracking-tight text-ink">
+          AI that thinks.
           <br />
-          <span className="gradient-text">that no one uses.</span>
+          <span className="gradient-text">Automation that delivers.</span>
+          <br />
+          Results you can measure.
         </h1>
 
         {/* child 3 */}
         <p className="hero-fade-up max-w-2xl text-lg md:text-xl font-dm text-muted leading-relaxed">
-          ZyvosAI designs and deploys custom AI automation systems that actually get
-          adopted — saving time, cutting costs, and driving measurable results from day one.
+          ZyvosAI designs and deploys custom AI systems that integrate into your business,
+          eliminate manual work, and generate measurable results from day one.
         </p>
 
         {/* child 4 */}

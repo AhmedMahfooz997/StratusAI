@@ -5,27 +5,27 @@ import { useEffect, useRef } from 'react'
 const testimonials = [
   {
     quote:
-      'ZyvosAI delivered in 6 weeks what our internal team spent 8 months trying to figure out. The ROI was visible within the first month.',
-    author: 'Sarah K.',
-    role: 'COO',
-    company: 'Regional Medical Group',
-    initials: 'SK',
+      'The automation Ahmed built saved my team hours every week. Genuinely impressed by how quickly he understood our process.',
+    author: 'Ali Khan',
+    role: 'Business Owner',
+    company: '',
+    initials: 'AK',
   },
   {
     quote:
-      "We were sceptical about AI automation — we'd been burned by over-promises before. ZyvosAI was different. They understood our operations inside out and built something we actually use every day.",
-    author: 'Marcus T.',
-    role: 'Head of Operations',
-    company: 'National Logistics Co.',
-    initials: 'MT',
+      'I was sceptical at first but the results spoke for themselves. Everything was built cleanly and actually works the way it should.',
+    author: 'Owais Durrani',
+    role: 'Operations Lead',
+    company: '',
+    initials: 'OD',
   },
   {
     quote:
-      "Our analysts used to dread Monday report runs. Now they review and approve in 20 minutes. ZyvosAI didn't just build a tool — they transformed how our team works.",
-    author: 'Priya L.',
-    role: 'Managing Director',
-    company: 'Capital Advisory Partners',
-    initials: 'PL',
+      'What stood out was how straightforward the whole process was. No jargon, no fluff, just a system that does exactly what we needed.',
+    author: 'Usama Asad',
+    role: 'Founder',
+    company: '',
+    initials: 'UA',
   },
 ]
 
@@ -113,7 +113,7 @@ export default function Testimonials() {
                 <div>
                   <p className="font-syne font-semibold text-ink text-sm">{t.author}</p>
                   <p className="font-dm text-muted text-xs">
-                    {t.role} — {t.company}
+                    {t.role}
                   </p>
                 </div>
               </div>

@@ -5,15 +5,15 @@ import { ArrowUpRight } from 'lucide-react'
 
 const caseStudies = [
   {
-    industry: 'Healthcare',
-    company: 'Regional Medical Group',
+    industry: 'Construction',
+    company: 'Regional Construction Firm',
     challenge:
-      'Patient intake was handled entirely via phone — staff spent 4+ hours daily on scheduling and data entry.',
-    result: '73% reduction in intake time',
-    metric: '73%',
-    metricLabel: 'Intake Time Reduced',
+      'Project managers were spending hours each day on manual progress updates, site reports, and chasing subcontractor status.',
+    result: '40% reduction in admin time',
+    metric: '40%',
+    metricLabel: 'Admin Time Reduced',
     detail:
-      'Built an AI-powered scheduling and triage workflow that handles 80% of bookings automatically, freeing clinical staff to focus on patient care.',
+      'Built an automated reporting and job tracking workflow that pulls site updates and generates progress reports without manual input.',
     tags: ['Workflow Automation', 'AI Agents', 'Integration'],
   },
   {
@@ -21,23 +21,23 @@ const caseStudies = [
     company: 'National Distributor',
     challenge:
       'Order processing required manual data extraction from emails, PDFs, and supplier portals — prone to errors and delays.',
-    result: '$340K saved in Year 1',
-    metric: '$340K',
-    metricLabel: 'Annual Cost Savings',
+    result: '15+ hours saved per week',
+    metric: '15h+',
+    metricLabel: 'Saved Per Week',
     detail:
       'Deployed an intelligent document processing pipeline with automated order validation, supplier sync, and exception handling.',
     tags: ['Document AI', 'System Integration', 'Automation'],
   },
   {
-    industry: 'Professional Services',
-    company: 'Financial Advisory Firm',
+    industry: 'Education',
+    company: 'Independent Education Provider',
     challenge:
-      'Analysts spent 40% of their week compiling client reports — manually pulling data from 6 different platforms.',
-    result: '15 hours reclaimed per analyst, per week',
+      'Staff were manually compiling student progress reports and compliance documents, taking up time that should have been spent teaching.',
+    result: '60% of reporting automated',
     metric: '60%',
     metricLabel: 'Reporting Automated',
     detail:
-      'Built a custom AI reporting engine that aggregates, analyses, and drafts client reports — reviewed and approved in minutes, not hours.',
+      'Built an AI-powered reporting tool that generates student progress summaries and compliance documents automatically, ready for staff review in minutes.',
     tags: ['AI Agents', 'Custom AI', 'Automation'],
   },
 ]

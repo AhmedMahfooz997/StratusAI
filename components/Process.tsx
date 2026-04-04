@@ -77,8 +77,7 @@ export default function Process() {
             From discovery to<br />production in weeks
           </h2>
           <p className="text-muted font-dm text-lg leading-relaxed">
-            Our proven four-stage process has been refined across 48+ engagements.
-            It keeps projects on track and ensures every solution we deploy actually gets used.
+            A structured process built to keep projects on track and ensure every solution we deploy actually gets used.
           </p>
         </div>
 

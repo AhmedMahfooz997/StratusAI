@@ -3,10 +3,10 @@
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
 const stats = [
-  { value: '48+', label: 'Workflows Deployed' },
-  { value: '$2.4M', label: 'Saved for Clients' },
-  { value: '11', label: 'Industries Served' },
-  { value: '98%', label: 'Client Retention' },
+  { value: '50+', label: 'Workflows Deployed' },
+  { value: '5+', label: 'Industries Served' },
+  { value: '48hr', label: 'Average Response Time' },
+  { value: '100%', label: 'Project Delivery Rate' },
 ]
 
 export default function Hero() {
@@ -42,7 +42,7 @@ export default function Hero() {
         {/* child 1 */}
         <div className="hero-fade-up inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-surface text-sm font-dm text-muted">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse-slow" />
-          Trusted by 48+ growing businesses
+          AI Automation and Integration
         </div>
 
         {/* child 2 */}

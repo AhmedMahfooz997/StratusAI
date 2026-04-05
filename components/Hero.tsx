@@ -141,13 +141,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center gap-8 py-8">
-        {/* child 1 */}
-        <div className="hero-fade-up inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-surface text-sm font-dm text-muted">
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse-slow" />
-          AI Automation and Integration
-        </div>
-
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center gap-8 py-8 pt-24">
         {/* child 2 */}
         <h1 className="hero-fade-up font-syne font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.15] tracking-tight text-ink">
           AI that thinks.

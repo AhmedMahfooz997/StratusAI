@@ -35,7 +35,7 @@ const faqs = [
 ]
 
 export default function FAQ() {
-  const [open, setOpen] = useState<number | null>(0)
+  const [open, setOpen] = useState<number | null>(null)
 
   return (
     <section id="faq" className="py-24 md:py-32 bg-surface">

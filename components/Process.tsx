@@ -82,7 +82,7 @@ export default function Process() {
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {steps.map((step, i) => {
             const Icon = step.icon
             return (
@@ -94,7 +94,7 @@ export default function Process() {
                   transform: 'translateY(16px)',
                   transition: 'opacity 0.5s ease, transform 0.5s ease',
                 }}
-                className="relative bg-surface p-8 flex flex-col gap-5 hover:bg-raised transition-colors duration-200"
+                className="relative bg-surface border border-border rounded-2xl p-8 flex flex-col gap-5 hover:bg-raised transition-colors duration-200"
               >
                 {/* Number */}
                 <span className="font-syne font-extrabold text-6xl leading-none gradient-text opacity-30">

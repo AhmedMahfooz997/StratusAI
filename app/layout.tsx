@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Syne, DM_Sans } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const syne = Syne({
@@ -54,6 +55,7 @@ export default function RootLayout({
     >
       <body className="bg-bg text-ink antialiased">
         {children}
+        <Script id="apollo-tracker" strategy="afterInteractive">{`function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"69e62528805b2d00113ddf69"})},document.head.appendChild(o)}initApollo();`}</Script>
       </body>
     </html>
   )

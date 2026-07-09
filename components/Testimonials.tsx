@@ -14,7 +14,7 @@ const testimonials = [
   {
     quote:
       'I was sceptical at first but the results spoke for themselves. Everything was built cleanly and actually works the way it should.',
-    author: 'Owais Durrani',
+    author: 'Oliver Davis',
     role: 'Operations Lead',
     company: '',
     initials: 'OD',
